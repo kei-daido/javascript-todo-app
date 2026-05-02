@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ToDoアプリ</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 20px;
+      }
+
+      input {
+        font-size: 16px;
+        padding: 8px;
+      }
+
+      button {
+        font-size: 16px;
+        padding: 8px 12px;
+        margin-left: 5px;
+      }
+
+      li {
+        margin-top: 10px;
+      }
+
+      .priority {
+        margin-left: 8px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      .priority-high {
+        color: red;
+      }
+
+      .priority-normal {
+        color: orange;
+      }
+
+      .priority-low {
+        color: green;
+      }
+
+      .due-date {
+        margin-left: 8px;
+        font-size: 14px;
+        color: #555;
+      }
+
+      .overdue {
+        color: red;
+        font-weight: bold;
+      }
+
+      .category {
+        margin-left: 8px;
+        font-size: 14px;
+        color: #555;
+      }
+
+      .completed {
+        text-decoration: line-through;
+        color: gray;
+      }
+
+      .delete-button {
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>ToDoアプリ</h1>
+
+    <input type="text" id="taskInput" placeholder="やることを入力" />
+
+    <select id="priorityInput">
+      <option value="high">高</option>
+      <option value="normal" selected>中</option>
+      <option value="low">低</option>
+    </select>
+
+    <input type="date" id="dueDateInput" />
+
+    <select id="categoryInput">
+      <option value="study">学習</option>
+      <option value="work">仕事</option>
+      <option value="life">生活</option>
+      <option value="other" selected>その他</option>
+    </select>
+
+    <button onclick="addTask()">追加</button>
+    <button onclick="sortTasks()">未完了を上にする</button>
+    <button onclick="sortByPriority()">優先度順にする</button>
+    <button onclick="sortByDueDate()">締切日順にする</button>
+
+    <button onclick="setFilter('all')">すべて</button>
+    <button onclick="setFilter('active')">未完了</button>
+    <button onclick="setFilter('completed')">完了済み</button>
+
+    <br /><br />
+    <input type="text" id="searchInput" placeholder="検索キーワードを入力" />
+
+    <select id="categoryFilterInput">
+      <option value="all">すべてのカテゴリ</option>
+      <option value="study">学習</option>
+      <option value="work">仕事</option>
+      <option value="life">生活</option>
+      <option value="other">その他</option>
+    </select>
+
+    <ul id="taskList"></ul>
+
+    <script src="script.js"></script>
+  </body>
+</html>
